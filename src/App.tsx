@@ -4,7 +4,7 @@ import { fetchQuizQuestions } from './API';
 // Components
 import QuestionCard from './components/QuestionCard';
 // Types
-import { QuestionState, Difficulty } from './API';
+import { QuestionState, Difficulty, Category } from './API';
 // styles
 import { GlobalStyle, Wrapper } from './App.styles';
 
@@ -25,7 +25,7 @@ const App: React.FC = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
 
-  // console.log(questions);
+  console.log(questions);
 
   const startQuiz = async () => {
     setLoading(true);
@@ -33,6 +33,7 @@ const App: React.FC = () => {
 
     const newQuestions = await fetchQuizQuestions(
       TOTAL_QUESTIONS,
+      Category.GENERAL_KNOWLEDGE,
       Difficulty.EASY
     );
 
@@ -79,7 +80,7 @@ const App: React.FC = () => {
         <h1>Test Your Knowledge!</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <button className='start' onClick={startQuiz}>
-            Start Quiz!
+            Start Quiz
           </button>
         ) : null}
         {!gameOver ? <p className='score'>Score: {score}</p> : null}
@@ -89,6 +90,7 @@ const App: React.FC = () => {
             questionNumber={number + 1}
             totalQuestions={TOTAL_QUESTIONS}
             question={questions[number].question}
+            category={questions[number].category}
             answers={questions[number].answers}
             userAnswer={userAnswers ? userAnswers[number] : undefined}
             callback={checkAnswer}
