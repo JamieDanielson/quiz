@@ -2,7 +2,7 @@
 
 Quiz with React and Typescript, originally followed along with [React / Typescript Tutorial - Build a Quiz App](https://youtu.be/F2JCjVSZlG0) from freeCodeCamp, then started adjusting styling and will add more to it over time.
 
-![Screenshot of Quiz on Phone](../react-quiz/src/img/quiz-screenshot.png)
+![Screenshot of Quiz on Phone](https://github.com/JamieDanielson/quiz/blob/master/src/img/quiz-screenshot.png)
 
 ## To-dos
 
