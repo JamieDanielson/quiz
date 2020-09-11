@@ -2,6 +2,14 @@
 
 Quiz with React and Typescript, originally followed along with [React / Typescript Tutorial - Build a Quiz App](https://youtu.be/F2JCjVSZlG0) from freeCodeCamp, then started adjusting styling and will add more to it over time.
 
+![Screenshot of Quiz on Phone](../react-quiz/src/img/quiz-screenshot.png)
+
+## To-dos
+
+- Improve accessibility / update colors
+- Different quizzes for different categories
+- Share your score
+
 In the project directory, you can run:
 
 ### `npm start`
