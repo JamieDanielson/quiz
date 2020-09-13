@@ -7,7 +7,6 @@ html {
 }
 
 body {
-  background: white;
   margin: 0;
   padding: 0;
   display: flex;
@@ -18,7 +17,7 @@ body {
 
 * {
   box-sizing: border-box;
-  font-family: 'Baloo Tammudu 2', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
 }
 
@@ -30,35 +29,29 @@ export const Wrapper = styled.div`
   align-items: center;
   padding-top: 1.2rem;
 
+  .start {
+    margin-top: 25%;
+    padding: 2rem;
+    font-size: 2rem;
+  }
+
+  .start-over {
+    margin-top: 0.5rem;
+    padding: 2rem;
+    font-size: 2rem;
+  }
+
   .score {
     font-size: 1.2rem;
-    margin: 0;
+    margin: 0.5rem;
+  }
+
+  .next {
+    margin-top: 0.5rem;
   }
 
   h1 {
-    font-family: 'Baloo Tammudu 2', sans-serif;
-    font-size: 2rem;
     line-height: 2rem;
     text-align: center;
-  }
-
-  .start,
-  .next {
-    cursor: pointer;
-    background: #fff;
-    color: black;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    margin: 1rem;
-  }
-
-  .start {
-    font-size: 1.5rem;
-    width: 200px;
-    padding: 1.5rem 0.5rem 0.5rem;
-  }
-
-  .next {
-    padding: 1.2rem 0.5rem 0.5rem;
   }
 `;
