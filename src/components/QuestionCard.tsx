@@ -3,6 +3,7 @@ import React from 'react';
 import { AnswerObject } from '../App';
 // Styles
 import { Wrapper, ButtonWrapper } from './QuestionCard.styles';
+import { Button, Card } from '@material-ui/core';
 
 type Props = {
   question: string;
@@ -23,28 +24,30 @@ const QuestionCard: React.FC<Props> = ({
   questionNumber,
   totalQuestions,
 }) => (
-  <Wrapper>
-    <p className='number'>
-      Question: {questionNumber} / {totalQuestions}
-    </p>
-    <p className='category'>Category: {category}</p>
-    <p dangerouslySetInnerHTML={{ __html: question }} />
-    <div>
-      {answers.map((answer) => (
-        <ButtonWrapper
-          key={answer}
-          correct={userAnswer?.correctAnswer === answer}
-          userClicked={userAnswer?.answer === answer}>
-          <button
-            disabled={userAnswer ? true : false}
-            value={answer}
-            onClick={callback}>
-            <span dangerouslySetInnerHTML={{ __html: answer }} />
-          </button>
-        </ButtonWrapper>
-      ))}
-    </div>
-  </Wrapper>
+  <Card className='mdc-card demo-card'>
+    <Wrapper>
+      <p className='number'>
+        Question: {questionNumber} / {totalQuestions}
+      </p>
+      <p className='category'>Category: {category}</p>
+      <p dangerouslySetInnerHTML={{ __html: question }} />
+      <div>
+        {answers.map((answer) => (
+          <ButtonWrapper
+            key={answer}
+            correct={userAnswer?.correctAnswer === answer}
+            userClicked={userAnswer?.answer === answer}>
+            <Button
+              disabled={userAnswer ? true : false}
+              value={answer}
+              onClick={callback}>
+              <span dangerouslySetInnerHTML={{ __html: answer }} />
+            </Button>
+          </ButtonWrapper>
+        ))}
+      </div>
+    </Wrapper>
+  </Card>
 );
 
 export default QuestionCard;

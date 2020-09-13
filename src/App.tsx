@@ -7,6 +7,7 @@ import QuestionCard from './components/QuestionCard';
 import { QuestionState, Difficulty, Category } from './API';
 // styles
 import { GlobalStyle, Wrapper } from './App.styles';
+import { Button } from '@material-ui/core';
 
 export type AnswerObject = {
   question: string;
@@ -25,7 +26,7 @@ const App: React.FC = () => {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
 
-  console.log(questions);
+  // console.log(questions);
 
   const startQuiz = async () => {
     setLoading(true);
@@ -78,10 +79,15 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Wrapper>
         <h1>Test Your Knowledge!</h1>
-        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <button className='start' onClick={startQuiz}>
+        {gameOver ? (
+          <Button
+            variant='contained'
+            color='primary'
+            size='large'
+            className='start'
+            onClick={startQuiz}>
             Start Quiz
-          </button>
+          </Button>
         ) : null}
         {!gameOver ? <p className='score'>Score: {score}</p> : null}
         {loading && <p className='loading'>Loading Questions...</p>}
@@ -100,9 +106,23 @@ const App: React.FC = () => {
         !loading &&
         userAnswers.length === number + 1 &&
         number !== TOTAL_QUESTIONS - 1 ? (
-          <button className='next' onClick={nextQuestion}>
+          <Button
+            variant='contained'
+            color='primary'
+            className='next'
+            onClick={nextQuestion}>
             Next Question
-          </button>
+          </Button>
+        ) : null}
+        {userAnswers.length === TOTAL_QUESTIONS ? (
+          <Button
+            variant='contained'
+            color='primary'
+            size='large'
+            className='start-over'
+            onClick={startQuiz}>
+            Start Over
+          </Button>
         ) : null}
       </Wrapper>
     </>
